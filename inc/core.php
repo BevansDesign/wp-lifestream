@@ -772,6 +772,10 @@ class Lifestream
 		$interval = $this->get_option('digest_interval');
 		switch ($interval)
 		{
+			case 'monthly':
+				return 3600*24*30;
+			case 'biweekly':
+				return 3600*24*7*2;
 			case 'weekly':
 				return 3600*24*7;
 			case 'daily':
@@ -1311,6 +1315,8 @@ class Lifestream
 				break;
 				case 'lifestream-settings.php':
 					$lifestream_digest_intervals = array(
+						'monthly'	=> $this->__('Monthly'),
+						'biweekly'	=> $this->__('Bi-Weekly'),
 						'weekly'	=> $this->__('Weekly'),
 						'daily'		=> $this->__('Daily'),
 						'hourly'	=> $this->__('Hourly'),
